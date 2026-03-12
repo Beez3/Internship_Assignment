@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DOM </title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            color: black;
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .night {
+            background: black;
+            color: white;
+        }
+
+        .boxSection {
+            border: 1px solid gray;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 6px 14px;
+            cursor: pointer;
+        }
+
+        #colorBox {
+            width: 250px;
+            height: 100px;
+            background: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>JavaScript DOM</h1>
+
+<div class="boxSection">
+    <h3>1. Theme Change</h3>
+    <button id="themeBtn">Change Theme</button>
+</div>
+
+<div class="boxSection">
+    <h3>2. Add New Div</h3>
+    <button id="addDivBtn">Add Div</button>
+</div>
+
+<div class="boxSection">
+    <h3>3. Show / Hide Text</h3>
+    <p id="textPara">You can hide or show this text.</p>
+    <button id="showHideBtn">Hide Text</button>
+</div>
+
+<div class="boxSection">
+    <h3>4. Change Box Style</h3>
+    <div id="colorBox">Click Button</div>
+    <button id="styleChangeBtn">Apply Style</button>
+</div>
+
+<script>
+
+//Q1
+document.getElementById("themeBtn").onclick = function() {
+    document.body.classList.toggle("night");
+};
+
+//Q2
+document.getElementById("addDivBtn").onclick = function() {
+
+    let newDiv = document.createElement("div");
+    newDiv.innerText = "New Devision";
+    newDiv.style.background = "green";
+    newDiv.style.color = "white";
+    newDiv.style.padding = "10px";
+    newDiv.style.marginTop = "10px";
+
+    this.parentElement.appendChild(newDiv);
+};
+
+//Q3
+let para = document.getElementById("textPara");
+let btn = document.getElementById("showHideBtn");
+
+btn.onclick = function() {
+
+    if (para.style.display === "none") {
+        para.style.display = "block";
+        btn.innerText = "Hide Text";
+    } else {
+        para.style.display = "none";
+        btn.innerText = "Show Text";
+    }
+};
+
+//Q4 
+document.getElementById("styleChangeBtn").onclick = function() {
+
+    let box = document.getElementById("colorBox");
+
+    box.style.background = "blue";
+    box.style.color = "white";
+    box.style.fontWeight = "bold";
+    box.style.borderRadius = "8px";
+};
+
+</script>
+</body>
+</html>
